@@ -17,16 +17,16 @@ const Nav = ({ backgroundState, setBackgroundState }: Props) => {
         [setBackgroundState]
     );
     return (
-        <div className="navbar bg-transparent absolute z-20">
+        <div className={`navbar bg-transparent absolute z-20 `}>
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-4xl">Jasper</a>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1 flex items-center gap-4">
-                    <li><div><a href="https://github.com/jasper1902/Jasper-lofi"><FaGithubSquare size={30}/></a></div></li>
+                    <li><div><a href="https://github.com/jasper1902/Jasper-lofi"><FaGithubSquare size={30} /></a></div></li>
                     <li>
                         <select
-                            className="select select-ghost max-w-xs "
+                            className={`select select-ghost max-w-xs ${backgroundState === "night-clear" || backgroundState === "night-rainny" ? "text-white" : "text-black"}`}
                             value={backgroundState}
                             onChange={handleBackgroundChange}
                         >
