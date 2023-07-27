@@ -4,6 +4,7 @@ import YouTubeEmbed from "./YouTubeEmbed";
 
 const YouTubeAudioPlayer = ({ videoId }: { videoId: string }) => {
   const [videoTitle, setVideoTitle] = useState("");
+  const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY
 
   useEffect(() => {
     const fetchVideoData = async () => {
@@ -14,7 +15,7 @@ const YouTubeAudioPlayer = ({ videoId }: { videoId: string }) => {
             params: {
               id: videoId,
               part: "snippet",
-              key: "AIzaSyCrgXQtgoO0qMTGXp7r9bvYU1IHvFJYOVs",
+              key: YOUTUBE_API_KEY,
             },
           }
         );
@@ -26,7 +27,8 @@ const YouTubeAudioPlayer = ({ videoId }: { videoId: string }) => {
     };
 
     fetchVideoData();
-  }, [videoId]);
+    
+  }, [YOUTUBE_API_KEY, videoId]);
 
   return (
     <div>
